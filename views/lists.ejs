@@ -1,0 +1,20 @@
+<%- include("header") -%>
+<div class="box" id="heading">
+  <h1> Lists </h1>
+</div>
+<div class="box">
+  <% lists.forEach(function(list){ %>
+  <form action="/list/<%= list._id %>" method="get">
+    <div class="item">
+      <button type="submit" class="round" name="list" value="<%= list._id %>">✔</button>
+      <p><%=  list.name  %></p>
+    </div>
+  </form>
+  <% }) %>
+
+  <form class="item" action="/list" method="post">
+    <input type="text" name="newList" placeholder="New List">
+    <button type="submit" class="round">+</button>
+  </form>
+</div>
+<%- include("footer") -%>
